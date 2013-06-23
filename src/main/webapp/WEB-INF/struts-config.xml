@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+        "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+	<form-beans>
+		<form-bean name="employeesForm" type="com.oc.strutswithspring.form.EmployeesForm" />
+	</form-beans>
+
+	<action-mappings>
+		<action path="/employeesSetUp" name="employeesForm" type="com.oc.strutswithspring.action.EmployeeAction" scope="request" parameter="dispatch">
+			<forward name="success" path="/employeesForm.jsp" />
+		</action>
+		<action path="/employeesProcess" name="employeesForm" type="com.oc.strutswithspring.action.EmployeeAction" scope="request" parameter="dispatch">
+			<forward name="success" path="/employees.jsp" />
+		</action>
+	</action-mappings>
+
+	<controller>
+		<set-property property="processorClass" value="org.springframework.web.struts.AutowiringRequestProcessor" />
+	</controller>
+	
+	<message-resources parameter="MessageResources" null="false" />
+
+	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation" value="/WEB-INF/web-app-context.xml" />
+	</plug-in>
+
+</struts-config>
+

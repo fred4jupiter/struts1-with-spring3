@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "Log4J 1.2.14" "log4j.dtd" >
+<log4j:configuration>
+
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Threshold" value="DEBUG" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%c] %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="org.springframework">
+		<level value="ERROR" />
+	</logger>
+	
+	<logger name="org.apache">
+		<level value="ERROR" />
+	</logger>
+
+	<logger name="com.oc.strutswithspring">
+		<level value="DEBUG" />
+	</logger>
+
+	<root>
+		<appender-ref ref="CONSOLE" />
+	</root>
+
+</log4j:configuration>
