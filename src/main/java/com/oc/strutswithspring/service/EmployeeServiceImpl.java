@@ -3,24 +3,28 @@ package com.oc.strutswithspring.service;
 import java.util.List;
 
 
+import com.oc.strutswithspring.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.oc.strutswithspring.dao.EmployeeDao;
 import com.oc.strutswithspring.domain.Employee;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
-    private EmployeeDao employeeDao;
+    private EmployeeRepository employeeRepository;
 
     public List<Employee> getAllEmployees() {
-        return employeeDao.getAllEmployees();
+        return employeeRepository.findAll();
     }
 
     public void updateEmployees(List<Employee> employees) {
-        employeeDao.updateEmployees(employees);
+        for (Employee employee : employees) {
+            employeeRepository.save(employee);
+        }
     }
 
 }

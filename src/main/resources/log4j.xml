@@ -17,6 +17,10 @@
 		<level value="ERROR" />
 	</logger>
 
+    <logger name="org.hibernate">
+        <level value="ERROR" />
+    </logger>
+
 	<logger name="com.oc.strutswithspring">
 		<level value="DEBUG" />
 	</logger>

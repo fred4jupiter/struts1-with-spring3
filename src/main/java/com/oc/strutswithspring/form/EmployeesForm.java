@@ -1,11 +1,7 @@
 package com.oc.strutswithspring.form;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
-
+import com.oc.strutswithspring.domain.Contact;
+import com.oc.strutswithspring.domain.Employee;
 import org.apache.commons.collections.Factory;
 import org.apache.commons.collections.ListUtils;
 import org.apache.commons.logging.Log;
@@ -13,8 +9,9 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
-import com.oc.strutswithspring.domain.Contact;
-import com.oc.strutswithspring.domain.Employee;
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeesForm extends ActionForm {
 
@@ -22,7 +19,7 @@ public class EmployeesForm extends ActionForm {
 
     private static final Log LOG = LogFactory.getLog(EmployeesForm.class);
 
-    private List<Employee> employees;
+    private List<Employee> employees = new ArrayList<>();
 
     public EmployeesForm() {
         LOG.debug("creating new EmployeesForm: " + this);
@@ -38,7 +35,6 @@ public class EmployeesForm extends ActionForm {
 
     @SuppressWarnings("unchecked")
     public void reset(ActionMapping actionMapping, HttpServletRequest httpServletRequest) {
-
         employees = ListUtils.lazyList(new ArrayList<Employee>(), new Factory() {
             public Object create() {
                 return buildEmployee();

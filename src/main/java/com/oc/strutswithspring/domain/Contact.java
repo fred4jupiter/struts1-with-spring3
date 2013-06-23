@@ -1,7 +1,19 @@
 package com.oc.strutswithspring.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Contact {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
     private String label;
+
     private String phoneNumber;
 
     public Contact() {
@@ -11,6 +23,7 @@ public class Contact {
         this.label = label;
         this.phoneNumber = phoneNumber;
     }
+
 
     public String getLabel() {
         return label;
@@ -27,4 +40,10 @@ public class Contact {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+
 }

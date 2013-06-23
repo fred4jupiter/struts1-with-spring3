@@ -1,52 +1,52 @@
 package com.oc.strutswithspring.domain;
 
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Employee implements Serializable {
+@Entity
+public class Employee {
 
-    private static final long serialVersionUID = -6698286968829292053L;
-    private Integer employeeId;
+    @Id
+    @GeneratedValue
+    private Long id;
+
     private String firstName;
+
     private String lastName;
-    private List<Contact> contacts;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "CONTACT_ID")
+    private List<Contact> contacts = new ArrayList<>();
 
     public Employee() {
     }
 
-    public Employee(Integer employeeId, String firstName, String lastName, List<Contact> contacts) {
-        this.employeeId = employeeId;
+    public Employee(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.contacts = contacts;
-    }
-
-    public Integer getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public List<Contact> getContacts() {
         return contacts;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void addContact(Contact contact) {
+        this.contacts.add(contact);
     }
 
     public void setContacts(List<Contact> contacts) {

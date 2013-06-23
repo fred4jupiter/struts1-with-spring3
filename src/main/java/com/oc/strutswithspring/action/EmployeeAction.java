@@ -51,7 +51,8 @@ public class EmployeeAction extends DispatchAction {
             throws Exception {
         LOG.debug("update");
         EmployeesForm empForm = (EmployeesForm) form;
-        employeeService.updateEmployees(empForm.getEmployees());
+        List<Employee> employees = empForm.getEmployees();
+        employeeService.updateEmployees(employees);
         populateEmployees(request);
         return mapping.findForward(SUCCESS);
     }
