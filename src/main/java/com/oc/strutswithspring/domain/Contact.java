@@ -24,7 +24,6 @@ public class Contact {
         this.phoneNumber = phoneNumber;
     }
 
-
     public String getLabel() {
         return label;
     }

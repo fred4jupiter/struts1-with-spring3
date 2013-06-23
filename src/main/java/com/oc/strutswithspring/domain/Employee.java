@@ -18,7 +18,7 @@ public class Employee {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "CONTACT_ID")
-    private List<Contact> contacts = new ArrayList<>();
+    private List<Contact> contacts;
 
     public Employee() {
     }
@@ -46,6 +46,9 @@ public class Employee {
     }
 
     public void addContact(Contact contact) {
+        if (this.contacts == null) {
+            this.contacts = new ArrayList<>();
+        }
         this.contacts.add(contact);
     }
 

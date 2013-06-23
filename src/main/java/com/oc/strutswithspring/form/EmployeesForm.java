@@ -19,7 +19,7 @@ public class EmployeesForm extends ActionForm {
 
     private static final Log LOG = LogFactory.getLog(EmployeesForm.class);
 
-    private List<Employee> employees = new ArrayList<>();
+    private List<Employee> employees;
 
     public EmployeesForm() {
         LOG.debug("creating new EmployeesForm: " + this);
