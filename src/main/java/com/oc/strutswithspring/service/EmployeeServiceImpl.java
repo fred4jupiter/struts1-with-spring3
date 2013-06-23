@@ -22,9 +22,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public void updateEmployees(List<Employee> employees) {
-        for (Employee employee : employees) {
-            employeeRepository.save(employee);
-        }
+        employeeRepository.save(employees);
     }
 
 }
