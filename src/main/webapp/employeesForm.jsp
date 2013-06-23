@@ -29,10 +29,12 @@
         <nested:iterate property="employees" indexId="indX">
             <c:set var="rowDec" value="${indX%2==0?'even':'odd'}"/>
             <tr class="${rowDec}">
+                <nested:hidden styleClass="${rowDec}" property="id"/>
                 <td><nested:text styleClass="${rowDec}" property="firstName"/></td>
                 <td><nested:text styleClass="${rowDec}" property="lastName"/></td>
                 <td>
                     <nested:iterate property="contacts">
+                        <nested:hidden styleClass="${rowDec}" property="id"/>
                         <nested:text styleClass="${rowDec}" property="label"/>:
                         <nested:text styleClass="${rowDec}" property="phoneNumber"/>
                         <br/>

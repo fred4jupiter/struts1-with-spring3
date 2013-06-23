@@ -3,7 +3,6 @@ package com.oc.strutswithspring.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Contact {
@@ -44,5 +43,7 @@ public class Contact {
         return id;
     }
 
-
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
