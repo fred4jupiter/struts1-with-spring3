@@ -88,14 +88,18 @@ A:hover {
     padding-right: 5px;
 }
 
-.even {
-    background-color: #EFFBEF;
+.nowrap {
+    white-space: nowrap;
 }
 
-.odd {
+.table_auto thead tr td {
+    background-color: cadetblue;
+}
+
+.table_auto tbody tr:nth-child(odd) td {
     background-color: white;
 }
 
-.nowrap {
-    white-space: nowrap;
+.table_auto tbody tr:nth-child(even) td {
+    background-color: #EFFBEF;
 }

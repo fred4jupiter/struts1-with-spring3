@@ -13,20 +13,22 @@
 <h1>
     <fmt:message key="label.employees"/>
 </h1>
-<table class="borderAll">
+<table class="table_auto">
     <tr>
         <th><fmt:message key="label.firstName"/></th>
         <th><fmt:message key="label.lastName"/></th>
         <th><fmt:message key="label.contact.info"/></th>
     </tr>
     <c:forEach var="emp" items="${employees}" varStatus="status">
-        <tr class="${status.index%2==0?'even':'odd'}">
+        <tr>
             <td class="nowrap"><c:out value="${emp.firstName}"/></td>
             <td class="nowrap"><c:out value="${emp.lastName}"/></td>
-            <td class="nowrap"><c:forEach var="contact" items="${emp.contacts}">
-                <c:out value="${contact.label}"/>: &nbsp;<c:out value="${contact.phoneNumber}"/>
-                <br/>
-            </c:forEach></td>
+            <td class="nowrap">
+                <c:forEach var="contact" items="${emp.contacts}">
+                    <c:out value="${contact.label}"/>: &nbsp;<c:out value="${contact.phoneNumber}"/>
+                    <br/>
+                </c:forEach>
+            </td>
         </tr>
     </c:forEach>
 </table>

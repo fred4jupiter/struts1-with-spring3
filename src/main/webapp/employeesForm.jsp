@@ -20,23 +20,22 @@
 <h1>Update Employees</h1>
 <html:form action="/employeesProcess">
     <input type="hidden" name="dispatch" value="update"/>
-    <table class="borderAll">
+    <table class="borderAll table_auto">
         <tr>
             <th><fmt:message key="label.firstName"/></th>
             <th><fmt:message key="label.lastName"/></th>
             <th><fmt:message key="label.contact.info"/></th>
         </tr>
         <nested:iterate property="employees" indexId="indX">
-            <c:set var="rowDec" value="${indX%2==0?'even':'odd'}"/>
-            <tr class="${rowDec}">
-                <nested:hidden styleClass="${rowDec}" property="id"/>
-                <td><nested:text styleClass="${rowDec}" property="firstName"/></td>
-                <td><nested:text styleClass="${rowDec}" property="lastName"/></td>
+            <tr>
+                <nested:hidden property="id"/>
+                <td><nested:text property="firstName"/></td>
+                <td><nested:text property="lastName"/></td>
                 <td>
                     <nested:iterate property="contacts">
-                        <nested:hidden styleClass="${rowDec}" property="id"/>
-                        <nested:text styleClass="${rowDec}" property="label"/>:
-                        <nested:text styleClass="${rowDec}" property="phoneNumber"/>
+                        <nested:hidden property="id"/>
+                        <nested:text property="label"/>:
+                        <nested:text property="phoneNumber"/>
                         <br/>
                     </nested:iterate>
                 </td>
